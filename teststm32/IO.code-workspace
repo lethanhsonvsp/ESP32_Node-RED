@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "../../../../Máy tính/IO"
+		},
+		{
+			"name": "Node_red_MQTT_esp32",
+			"path": "../../../../Máy tính/IO/esp32/Node_red_MQTT_esp32"
+		},
+		{
+			"name": "Websocket_esp32",
+			"path": "../Websocket_esp32"
+		},
+		{
+			"name": "esp32",
+			"path": "../esp32"
+		},
+		{
+			"name": "esp32",
+			"path": "D:/IO/esp32"
+		},
+		{
+			"name": "teststm32",
+			"path": "."
+		}
+	],
+	"settings": {}
+}

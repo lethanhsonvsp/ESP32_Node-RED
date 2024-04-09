@@ -1,0 +1,273 @@
+[
+    {
+        "id": "eab62c028b6de585",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "43d0b302d43f1d6d",
+        "type": "websocket in",
+        "z": "eab62c028b6de585",
+        "name": "",
+        "server": "82bc284bb7df614c",
+        "client": "",
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "dc9932f3a9cbb2c5"
+            ]
+        ]
+    },
+    {
+        "id": "95335b2417c53468",
+        "type": "websocket out",
+        "z": "eab62c028b6de585",
+        "name": "",
+        "server": "82bc284bb7df614c",
+        "client": "",
+        "x": 610,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b5baa5e3acaa09fc",
+        "type": "debug",
+        "z": "eab62c028b6de585",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "0ec8abe9df08348f",
+        "type": "ui_gauge",
+        "z": "eab62c028b6de585",
+        "name": "",
+        "group": "fa8e8e5adeacfe66",
+        "order": 0,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Temp",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 810,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4f46890549c36235",
+        "type": "ui_gauge",
+        "z": "eab62c028b6de585",
+        "name": "",
+        "group": "fa8e8e5adeacfe66",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Humi",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 810,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6f0e2a016af96bad",
+        "type": "function",
+        "z": "eab62c028b6de585",
+        "name": "",
+        "func": "var temp = msg.payload.temp;\nmsg.payload = temp;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 200,
+        "wires": [
+            [
+                "0ec8abe9df08348f"
+            ]
+        ]
+    },
+    {
+        "id": "dc9932f3a9cbb2c5",
+        "type": "json",
+        "z": "eab62c028b6de585",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 530,
+        "y": 140,
+        "wires": [
+            [
+                "6f0e2a016af96bad",
+                "0ee80bc8ed19b1b3",
+                "b5baa5e3acaa09fc"
+            ]
+        ]
+    },
+    {
+        "id": "0ee80bc8ed19b1b3",
+        "type": "function",
+        "z": "eab62c028b6de585",
+        "name": "",
+        "func": "var temp = msg.payload.humi;\nmsg.payload = temp;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 240,
+        "wires": [
+            [
+                "4f46890549c36235"
+            ]
+        ]
+    },
+    {
+        "id": "7bc470735d88d9ad",
+        "type": "ui_button",
+        "z": "eab62c028b6de585",
+        "name": "",
+        "group": "fa8e8e5adeacfe66",
+        "order": 2,
+        "width": "12",
+        "height": "1",
+        "passthru": false,
+        "label": "OFF",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 410,
+        "y": 380,
+        "wires": [
+            [
+                "95335b2417c53468"
+            ]
+        ]
+    },
+    {
+        "id": "5f122c0441f8a2a1",
+        "type": "ui_button",
+        "z": "eab62c028b6de585",
+        "name": "",
+        "group": "fa8e8e5adeacfe66",
+        "order": 2,
+        "width": "12",
+        "height": "1",
+        "passthru": false,
+        "label": "ON",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 410,
+        "y": 340,
+        "wires": [
+            [
+                "95335b2417c53468"
+            ]
+        ]
+    },
+    {
+        "id": "8acab6d5ae982046",
+        "type": "ui_switch",
+        "z": "eab62c028b6de585",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "fa8e8e5adeacfe66",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "95335b2417c53468"
+            ]
+        ]
+    },
+    {
+        "id": "82bc284bb7df614c",
+        "type": "websocket-listener",
+        "path": "/esp32",
+        "wholemsg": "false"
+    },
+    {
+        "id": "fa8e8e5adeacfe66",
+        "type": "ui_group",
+        "name": "Trang chủ",
+        "tab": "5a46c0bda4183baf",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "5a46c0bda4183baf",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
