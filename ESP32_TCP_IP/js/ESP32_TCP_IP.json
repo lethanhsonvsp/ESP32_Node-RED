@@ -1,0 +1,124 @@
+[
+    {
+        "id": "d39010c80d91e77a",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3847ac4066bb08e6",
+        "type": "tcp in",
+        "z": "d39010c80d91e77a",
+        "name": "",
+        "server": "server",
+        "host": "",
+        "port": "5000",
+        "datamode": "stream",
+        "datatype": "buffer",
+        "newline": "",
+        "topic": "",
+        "trim": false,
+        "base64": false,
+        "tls": "",
+        "x": 320,
+        "y": 340,
+        "wires": [
+            [
+                "6e6aa18ee87385b3",
+                "9505a392b0b8d032"
+            ]
+        ]
+    },
+    {
+        "id": "6e6aa18ee87385b3",
+        "type": "debug",
+        "z": "d39010c80d91e77a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9505a392b0b8d032",
+        "type": "ui_text",
+        "z": "d39010c80d91e77a",
+        "group": "fa8e8e5adeacfe66",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 490,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f2a4db642f6d458f",
+        "type": "ui_text_input",
+        "z": "d39010c80d91e77a",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "fa8e8e5adeacfe66",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "88b9bac89ef49619"
+            ]
+        ]
+    },
+    {
+        "id": "88b9bac89ef49619",
+        "type": "tcp out",
+        "z": "d39010c80d91e77a",
+        "name": "",
+        "host": "",
+        "port": "5000",
+        "beserver": "reply",
+        "base64": false,
+        "end": false,
+        "tls": "",
+        "x": 500,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "fa8e8e5adeacfe66",
+        "type": "ui_group",
+        "name": "Trang chủ",
+        "tab": "5a46c0bda4183baf",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "5a46c0bda4183baf",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

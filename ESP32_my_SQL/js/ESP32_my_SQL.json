@@ -1,0 +1,133 @@
+[
+    {
+        "id": "cf74bee95fed2738",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3dfcf2d5a04f110d",
+        "type": "mysql",
+        "z": "cf74bee95fed2738",
+        "mydb": "cde79b3a667e09c3",
+        "name": "",
+        "x": 670,
+        "y": 140,
+        "wires": [
+            [
+                "5bc5f73b70dc4848"
+            ]
+        ]
+    },
+    {
+        "id": "2d321473edbcfce7",
+        "type": "function",
+        "z": "cf74bee95fed2738",
+        "name": "",
+        "func": "// var temp = msg.req.params.temp;\n// var humi = msg.req.params.humi;\n// var time = msg.req.params.time;\n// var query = `INSERT INTO data_log (Temp, Humi, Time) VALUES (${temp}, ${humi}, ${time})`;\n// msg.topic = query;\n// return msg;\nvar query = `INSERT INTO data_log (Temp, Humi, Time) VALUES (:Temp, :Humi, :Time)`;\nmsg.topic = query;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [
+                "3dfcf2d5a04f110d"
+            ]
+        ]
+    },
+    {
+        "id": "ebc35e441c51af70",
+        "type": "http in",
+        "z": "cf74bee95fed2738",
+        "name": "",
+        "url": "/api/esp32/data-log",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 140,
+        "wires": [
+            [
+                "2d321473edbcfce7"
+            ]
+        ]
+    },
+    {
+        "id": "5bc5f73b70dc4848",
+        "type": "http response",
+        "z": "cf74bee95fed2738",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "079187da7af985d2",
+        "type": "http in",
+        "z": "cf74bee95fed2738",
+        "name": "",
+        "url": "/api/esp32/data-log",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "cab83e85924dc484"
+            ]
+        ]
+    },
+    {
+        "id": "a737b691f9d07edf",
+        "type": "function",
+        "z": "cf74bee95fed2738",
+        "name": "",
+        "func": "var query = `INSERT INTO data_log (Temp, Humi, Time) VALUES (:Temp, :Humi, :Time)`;\nmsg.topic = query;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 180,
+        "wires": [
+            [
+                "3dfcf2d5a04f110d"
+            ]
+        ]
+    },
+    {
+        "id": "cab83e85924dc484",
+        "type": "json",
+        "z": "cf74bee95fed2738",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "a737b691f9d07edf"
+            ]
+        ]
+    },
+    {
+        "id": "cde79b3a667e09c3",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "sv",
+        "tz": "",
+        "charset": "UTF8"
+    }
+]

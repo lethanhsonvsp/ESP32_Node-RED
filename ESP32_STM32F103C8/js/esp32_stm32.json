@@ -1,0 +1,130 @@
+[
+    {
+        "id": "d39010c80d91e77a",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9978ce2588151309",
+        "type": "websocket out",
+        "z": "d39010c80d91e77a",
+        "name": "",
+        "server": "82bc284bb7df614c",
+        "client": "",
+        "x": 590,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "0912442e5068c8dd",
+        "type": "ui_button",
+        "z": "d39010c80d91e77a",
+        "name": "",
+        "group": "fa8e8e5adeacfe66",
+        "order": 2,
+        "width": "12",
+        "height": "1",
+        "passthru": false,
+        "label": "OFF",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 390,
+        "y": 460,
+        "wires": [
+            [
+                "9978ce2588151309"
+            ]
+        ]
+    },
+    {
+        "id": "f654d1911ee7bb4f",
+        "type": "ui_button",
+        "z": "d39010c80d91e77a",
+        "name": "",
+        "group": "fa8e8e5adeacfe66",
+        "order": 2,
+        "width": "12",
+        "height": "1",
+        "passthru": false,
+        "label": "ON",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "9978ce2588151309"
+            ]
+        ]
+    },
+    {
+        "id": "d0e642920ae0bc36",
+        "type": "ui_text",
+        "z": "d39010c80d91e77a",
+        "group": "fa8e8e5adeacfe66",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 590,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "06672c1fa9d8b67f",
+        "type": "websocket in",
+        "z": "d39010c80d91e77a",
+        "name": "",
+        "server": "82bc284bb7df614c",
+        "client": "",
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "d0e642920ae0bc36"
+            ]
+        ]
+    },
+    {
+        "id": "82bc284bb7df614c",
+        "type": "websocket-listener",
+        "path": "/esp32",
+        "wholemsg": "false"
+    },
+    {
+        "id": "fa8e8e5adeacfe66",
+        "type": "ui_group",
+        "name": "Trang chủ",
+        "tab": "5a46c0bda4183baf",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "5a46c0bda4183baf",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

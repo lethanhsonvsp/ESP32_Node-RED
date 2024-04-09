@@ -1,0 +1,19 @@
+[
+    {
+        "id": "4358c1457acd0654",
+        "type": "debug",
+        "z": "70d5b9b99ed71551",
+        "name": "HTTP GET",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 160,
+        "wires": []
+    }
+]
